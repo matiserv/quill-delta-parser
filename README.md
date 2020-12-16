@@ -1,5 +1,5 @@
 # Quill Delta to HTML Parser
-IT HAS SOME CHANGES IN DISPLAY FORMAT (eg. p -> div, you may change colore to color class) CHANGE IT FOR YOUR PURPOSES, FIXES PROBLEM WITH IFRAMES, IMAGES WITH LINKS, AND SOME OTHER FIXES.
+IT HAS SOME CHANGES IN DISPLAY FORMAT (eg. p -> div, you may change colore to color class) CHANGE IT FOR YOUR PURPOSES, FIXES PROBLEM WITH IFRAMES, IMAGES WITH LINKS, AND SOME OTHER PROBLEMS.
 
 A PHP library to parse [Quill WYSIWYG](https://quilljs.com/) editor [deltas](https://github.com/quilljs/delta) into HTML - flexible and extendible for custom elements. Every element is parsed by the same mechanism, this makes it easy to extend and understand.
 
