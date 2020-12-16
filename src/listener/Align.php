@@ -18,7 +18,7 @@ class Align extends BlockListener
     /**
      * @var array Supported alignments.
      */
-    public $alignments = ['center', 'right', 'justify'];
+    public $alignments = ['center', 'right', 'justify', 'left'];
 
     /**
      * {@inheritDoc}
@@ -43,10 +43,12 @@ class Align extends BlockListener
             if (!in_array($pick->alignment, $this->alignments)) {
                 // prevent html injection in case the attribute is user input
                 throw new Exception('An unknown alignment "' . $pick->alignment . '" has been detected.');
+            } else {
+                
             }
 
         }
 
-        $this->wrapElement('<p style="text-align: {alignment};">{__buffer__}</p>', ['alignment']);
+        $this->wrapElement('<div class="alignment-{alignment}">{__buffer__}</div>', ['alignment']);
     }
 }

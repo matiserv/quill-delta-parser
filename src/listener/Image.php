@@ -4,7 +4,6 @@ namespace nadar\quill\listener;
 
 use nadar\quill\Line;
 use nadar\quill\Lexer;
-use nadar\quill\BlockListener;
 use nadar\quill\InlineListener;
 
 /**
@@ -15,7 +14,7 @@ use nadar\quill\InlineListener;
  */
 class Image extends InlineListener
 {
-    public $wrapper = '<img src="{src}" alt="" class="img-responsive img-fluid" />';
+    public $wrapper = '<img src="{src}" alt="" class="img-responsive img-fluid" {width} />';
     
     /**
      * {@inheritDoc}
@@ -23,8 +22,13 @@ class Image extends InlineListener
     public function process(Line $line)
     {
         $embedUrl = $line->insertJsonKey('image');
+		$width = '';
+		if ($widthpx = $line->getAttribute('width')) {
+			$width = "style=\"width: ".$widthpx."px;\"";
+		}
+		
         if ($embedUrl) {
-            $this->updateInput($line, str_replace(['{src}'], [$line->getLexer()->escape($embedUrl)], $this->wrapper));
+            $this->updateInput($line, str_replace(['{src}', '{width}'], [$line->getLexer()->escape($embedUrl), $width], $this->wrapper));
         }
     }
 }

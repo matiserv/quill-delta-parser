@@ -13,7 +13,7 @@ use nadar\quill\listener\Strike;
 use nadar\quill\listener\Underline;
 use nadar\quill\listener\Video;
 use nadar\quill\listener\Image;
-use nadar\quill\listener\Color;
+use nadar\quill\listener\Colore;
 use nadar\quill\listener\Font;
 use nadar\quill\listener\Script;
 use nadar\quill\listener\Align;
@@ -136,12 +136,13 @@ class Lexer
      */
     public function loadBuiltinListeneres()
     {
-        $this->registerListener(new Bold);
-        $this->registerListener(new Italic);
-        $this->registerListener(new Color);
-        $this->registerListener(new Link);
+        $this->registerListener(new Align);
         $this->registerListener(new Video);
         $this->registerListener(new Image);
+        $this->registerListener(new Bold);
+        $this->registerListener(new Italic);
+        $this->registerListener(new Link);
+        $this->registerListener(new Colore);
         $this->registerListener(new Strike);
         $this->registerListener(new Underline);
         $this->registerListener(new Heading);
@@ -150,7 +151,6 @@ class Lexer
         $this->registerListener(new Blockquote);
         $this->registerListener(new Font);
         $this->registerListener(new Script);
-        $this->registerListener(new Align);
     }
 
     /**
